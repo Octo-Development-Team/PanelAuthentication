@@ -11,7 +11,7 @@ module.exports = {
     },
 
     panelData: {
-        panelUrl: "http://localhost:8888/auth/panel"
+        panelUrl: "http://localhost/"
     },
 
     cookieData: {
