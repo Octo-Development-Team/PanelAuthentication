@@ -16,8 +16,8 @@ This handles authanticating the user to the panel
     |---|---|
     |panelUrl| The url where your panel frontend will be served |
     |discord.redirectUrl| The redirect URL set in the Development portal |
-    |discord.clientId| Your bots client is |
-    |discord.clientSecret| Your bots client secret |
+    |discord.clientId| Your bot's client is |
+    |discord.clientSecret| Your bot's client secret |
     |cookie| General login cookie settings |
 
 
