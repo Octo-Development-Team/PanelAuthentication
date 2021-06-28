@@ -22,4 +22,4 @@ This handles authanticating the user to the panel
 
 
 2. Rename `.env.example` to `.env`
-3. Change the JWT_KEY to something secure
+3. Change the JWT_SECRET to something secure, must match JWT_SECRET in the [bot](https://github.com/Octo-Development-Team/OctoBot)
