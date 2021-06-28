@@ -1,0 +1,15 @@
+{
+    "panelUrl": "http://localhost:1024",
+    "discord": {
+        "redirectUrl": "http://localhost:8888/auth/callback",
+        "clientId": "CLIENT_ID",
+        "clientSecret": "CLIENT_SECRET"
+    },
+    "cookie": {
+        "domain": "localhost",
+        "hostOnly": true,
+        "secure": false,
+        "session": false,
+        "sameSite": "lax"
+    }
+}

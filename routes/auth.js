@@ -1,11 +1,12 @@
 const router = require("express").Router()
 const discordOAuth = require("../util/discordOAuth")
-const { discordOAuthData, panelData, cookieData } = require("../constants")
+const { discordOAuthData } = require("../constants")
+const { panelUrl, cookie, discord } = require("../config.json")
 const { dataContains, sendBadRequest, sendOk } = require("../globals").util;
 const { sign } = require("../util/jwt");
 
 router.get("/", (_, res) => {
-    res.redirect(302, discordOAuthData.loginUrl);
+    res.redirect(302, encodeURI(`https://discord.com/api/oauth2/authorize?client_id=${discord.clientId}&redirect_uri=${discord.redirectUrl}&response_type=code&scope=${discordOAuthData.scopes.join(" ")}`));
 })
 
 router.get("/callback", async (req, res) => {
@@ -18,8 +19,8 @@ router.get("/callback", async (req, res) => {
         
         const { access_token, token_type } = data;
         const token = sign({ access_token, token_type, discordData });
-        res.cookie('token', token, { ...cookieData, expires: new Date(Date.now() + 1.728e8) })
-        res.redirect(302, panelData.panelUrl)
+        res.cookie('token', token, { ...cookie, expires: new Date(Date.now() + 1.728e8) })
+        res.redirect(302, panelUrl)
     }).catch(error => sendBadRequest(res, { error }));
 })
 

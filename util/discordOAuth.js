@@ -1,6 +1,7 @@
 const fetch = require("node-fetch");
 const qs = require("qs");
 const { discordOAuthData } = require("../constants");
+const { discord } = require("../config.json")
 const { dataContains } = require("../util/util")
 
 /**
@@ -37,11 +38,11 @@ module.exports = {
             fetch(discordOAuthData.tokenExchangeUrl, {
                 method: "POST",
                 body: qs.stringify({
-                    "client_id": discordOAuthData.clientId,
-                    "client_secret": discordOAuthData.clientSecret,
+                    "client_id": discord.clientId,
+                    "client_secret": discord.clientSecret,
                     "grant_type": "authorization_code",
                     "code": code,
-                    "redirect_uri": discordOAuthData.redirectUrl,
+                    "redirect_uri": discord.redirectUrl,
                     "scope:": discordOAuthData.scopes.join(" ")
                 }),
                 headers: {
